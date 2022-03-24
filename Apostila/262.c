@@ -34,6 +34,7 @@ int main() {
             break;
         default:
             printf("Nenhum planeta referente a este número foi encontrado.");
+            return 0;
     }
 
     printf("O peso relativo de %.2lf Kg no planeta %d é de: %.2lf", peso_terra, planeta, (peso_terra / 10) * gravidade_relativa);
