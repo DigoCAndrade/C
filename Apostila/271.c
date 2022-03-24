@@ -2,21 +2,29 @@
 
 #include <stdio.h>
 
-int numeros[2];
+double percurso_km, consumo;
+char tipo_carro;
 
 int main() {
-    printf("Digite três números inteiros:");
-    scanf("%d %d %d", &numeros[0], &numeros[1], &numeros[2]);
+    printf("Digite o percurso percorrido em Km:");
+    scanf("%lf", &percurso_km);
 
-    for (int i = 0; i < 3; ++i) {
-        for (int j = i + 1; j < 3; ++j) {
-            if (numeros[i] > numeros[j]) {
-                int temp = numeros[i];
-                numeros[i] = numeros[j];
-                numeros[j] = temp;
-            }
-        }
+    printf("Digite a classe do carro (A, B e C):");
+    scanf("%s", &tipo_carro);
+
+    switch (tipo_carro) {
+        case 'A':
+            consumo = (percurso_km/12);
+            break;
+        case 'B':
+            consumo = (percurso_km/9);
+            break;
+        case 'C':
+            consumo = (percurso_km/8);
+            break;
+        default:
+            printf("Esta classe de carro não foi encontrada.");
+            return 0;
     }
-
-    printf("A ordem crescente dos números digitados é:\n%d\n%d\n%d", numeros[0], numeros[1], numeros[2]);
+    printf("O consumo estimado de combustível é de: %.2lfL", consumo);
 }
